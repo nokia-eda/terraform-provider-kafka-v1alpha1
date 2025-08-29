@@ -1,0 +1,128 @@
+app_group:
+  - read:
+      path: /apps/kafka.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: PATCH
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: DELETE
+  - delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/_ui/{pathname}
+      method: GET
+
+com.nokia.eda.kafka.v1alpha1.cluster_producer:
+  - create:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers
+      method: POST
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: GET
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: PUT
+
+com.nokia.eda.kafka.v1alpha1.cluster_producer_list:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers
+      method: GET
+  - delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers
+      method: DELETE
+
+com.nokia.eda.kafka.v1alpha1.cluster_producer_deleted_resources:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/_deleted
+      method: GET
+
+com.nokia.eda.kafka.v1alpha1.producer:
+  - create:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers
+      method: POST
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: GET
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: PUT
+
+com.nokia.eda.kafka.v1alpha1.producer_list:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers
+      method: GET
+  - delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers
+      method: DELETE
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/producers
+      method: GET
+
+com.nokia.eda.kafka.v1alpha1.producer_deleted_resources:
+  - read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/_deleted
+      method: GET
+
+totalPaths: 14
+totalSchemas: 38
+usedSchemas: 13
+unusedSchemas: 25
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - com.nokia.eda.kafka.v1alpha1.ClusterProducer_DeletedResourceEntry
+  - com.nokia.eda.kafka.v1alpha1.ClusterProducer_metadata
+  - com.nokia.eda.kafka.v1alpha1.Producer_DeletedResourceEntry
+  - com.nokia.eda.kafka.v1alpha1.Producer_metadata

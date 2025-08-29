@@ -1,0 +1,25 @@
+Path,Method,Schema,Model Name,Supported,Datasource,Resource
+/apps/kafka.eda.nokia.com,GET,AppGroup,app_group,true,true,false
+/apps/kafka.eda.nokia.com/v1alpha1,GET,ResourceList,resource_list,true,true,false
+/apps/kafka.eda.nokia.com/v1alpha1/_ui/{pathname},GET,UIResult,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers,DELETE,com.nokia.eda.kafka.v1alpha1.ClusterProducerList,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers,GET,com.nokia.eda.kafka.v1alpha1.ClusterProducerList,cluster_producer_list,true,true,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers,POST,com.nokia.eda.kafka.v1alpha1.ClusterProducer,cluster_producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/_deleted,GET,com.nokia.eda.kafka.v1alpha1.ClusterProducer_DeletedResources,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},DELETE,Status,cluster_producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},GET,com.nokia.eda.kafka.v1alpha1.ClusterProducer,cluster_producer,true,true,true
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},PATCH,Patch,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},PUT,com.nokia.eda.kafka.v1alpha1.ClusterProducer,cluster_producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,DELETE,com.nokia.eda.kafka.v1alpha1.ProducerList,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,GET,com.nokia.eda.kafka.v1alpha1.ProducerList,producer_list,true,true,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,POST,com.nokia.eda.kafka.v1alpha1.Producer,producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/_deleted,GET,com.nokia.eda.kafka.v1alpha1.Producer_DeletedResources,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},DELETE,Status,producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},GET,com.nokia.eda.kafka.v1alpha1.Producer,producer,true,true,true
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},PATCH,Patch,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},PUT,com.nokia.eda.kafka.v1alpha1.Producer,producer,true,false,true
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/producers,GET,com.nokia.eda.kafka.v1alpha1.ProducerList,,false,false,false
