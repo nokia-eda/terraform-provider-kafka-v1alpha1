@@ -142,7 +142,7 @@
                                     }
                                 },
                                 {
-                                    "name": "compressioncodec",
+                                    "name": "compression_codec",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "Data compression codec"
@@ -205,21 +205,21 @@
                                     }
                                 },
                                 {
-                                    "name": "flushfrequency",
+                                    "name": "flush_frequency",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "The best-effort frequency of flushes"
                                     }
                                 },
                                 {
-                                    "name": "maxretry",
+                                    "name": "max_retry",
                                     "int64": {
                                         "computed_optional_required": "optional",
                                         "description": "The total number of times to retry sending a message"
                                     }
                                 },
                                 {
-                                    "name": "requiredacks",
+                                    "name": "required_acks",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "Number of replica acknowledgements the broker must see before responding"
@@ -245,7 +245,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "tokenurl",
+                                                "name": "token_url",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -263,7 +263,7 @@
                                     }
                                 },
                                 {
-                                    "name": "syncproducer",
+                                    "name": "sync_producer",
                                     "bool": {
                                         "computed_optional_required": "optional",
                                         "description": "Start a sync producer"
@@ -282,28 +282,28 @@
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "cafile",
+                                                "name": "ca_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate Authority file path"
                                                 }
                                             },
                                             {
-                                                "name": "certfile",
+                                                "name": "cert_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate file path"
                                                 }
                                             },
                                             {
-                                                "name": "keyfile",
+                                                "name": "key_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Key file path"
                                                 }
                                             },
                                             {
-                                                "name": "skipverify",
+                                                "name": "skip_verify",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Skip verifying the server certificate"
@@ -346,7 +346,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -421,7 +421,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "compressioncodec",
+                                                    "name": "compression_codec",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Data compression codec"
@@ -484,21 +484,21 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "flushfrequency",
+                                                    "name": "flush_frequency",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "The best-effort frequency of flushes"
                                                     }
                                                 },
                                                 {
-                                                    "name": "maxretry",
+                                                    "name": "max_retry",
                                                     "int64": {
                                                         "computed_optional_required": "optional",
                                                         "description": "The total number of times to retry sending a message"
                                                     }
                                                 },
                                                 {
-                                                    "name": "requiredacks",
+                                                    "name": "required_acks",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Number of replica acknowledgements the broker must see before responding"
@@ -524,7 +524,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "tokenurl",
+                                                                "name": "token_url",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -542,7 +542,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "syncproducer",
+                                                    "name": "sync_producer",
                                                     "bool": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Start a sync producer"
@@ -561,28 +561,28 @@
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "cafile",
+                                                                "name": "ca_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Certificate Authority file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "certfile",
+                                                                "name": "cert_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Certificate file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "keyfile",
+                                                                "name": "key_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Key file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "skipverify",
+                                                                "name": "skip_verify",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Skip verifying the server certificate"
@@ -704,7 +704,7 @@
                                     }
                                 },
                                 {
-                                    "name": "compressioncodec",
+                                    "name": "compression_codec",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "Data compression codec"
@@ -767,21 +767,21 @@
                                     }
                                 },
                                 {
-                                    "name": "flushfrequency",
+                                    "name": "flush_frequency",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "The best-effort frequency of flushes"
                                     }
                                 },
                                 {
-                                    "name": "maxretry",
+                                    "name": "max_retry",
                                     "int64": {
                                         "computed_optional_required": "optional",
                                         "description": "The total number of times to retry sending a message"
                                     }
                                 },
                                 {
-                                    "name": "requiredacks",
+                                    "name": "required_acks",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "Number of replica acknowledgements the broker must see before responding"
@@ -807,7 +807,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "tokenurl",
+                                                "name": "token_url",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -825,7 +825,7 @@
                                     }
                                 },
                                 {
-                                    "name": "syncproducer",
+                                    "name": "sync_producer",
                                     "bool": {
                                         "computed_optional_required": "optional",
                                         "description": "Start a sync producer"
@@ -844,28 +844,28 @@
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "cafile",
+                                                "name": "ca_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate Authority file path"
                                                 }
                                             },
                                             {
-                                                "name": "certfile",
+                                                "name": "cert_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate file path"
                                                 }
                                             },
                                             {
-                                                "name": "keyfile",
+                                                "name": "key_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Key file path"
                                                 }
                                             },
                                             {
-                                                "name": "skipverify",
+                                                "name": "skip_verify",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Skip verifying the server certificate"
@@ -908,7 +908,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -996,7 +996,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "compressioncodec",
+                                                    "name": "compression_codec",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Data compression codec"
@@ -1059,21 +1059,21 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "flushfrequency",
+                                                    "name": "flush_frequency",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "The best-effort frequency of flushes"
                                                     }
                                                 },
                                                 {
-                                                    "name": "maxretry",
+                                                    "name": "max_retry",
                                                     "int64": {
                                                         "computed_optional_required": "optional",
                                                         "description": "The total number of times to retry sending a message"
                                                     }
                                                 },
                                                 {
-                                                    "name": "requiredacks",
+                                                    "name": "required_acks",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Number of replica acknowledgements the broker must see before responding"
@@ -1099,7 +1099,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "tokenurl",
+                                                                "name": "token_url",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -1117,7 +1117,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "syncproducer",
+                                                    "name": "sync_producer",
                                                     "bool": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Start a sync producer"
@@ -1136,28 +1136,28 @@
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "cafile",
+                                                                "name": "ca_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Certificate Authority file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "certfile",
+                                                                "name": "cert_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Certificate file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "keyfile",
+                                                                "name": "key_file",
                                                                 "string": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "TLS Key file path"
                                                                 }
                                                             },
                                                             {
-                                                                "name": "skipverify",
+                                                                "name": "skip_verify",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Skip verifying the server certificate"
@@ -1389,7 +1389,7 @@
                                     }
                                 },
                                 {
-                                    "name": "compressioncodec",
+                                    "name": "compression_codec",
                                     "string": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1485,14 +1485,14 @@
                                     }
                                 },
                                 {
-                                    "name": "flushfrequency",
+                                    "name": "flush_frequency",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "The best-effort frequency of flushes"
                                     }
                                 },
                                 {
-                                    "name": "maxretry",
+                                    "name": "max_retry",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1502,7 +1502,7 @@
                                     }
                                 },
                                 {
-                                    "name": "requiredacks",
+                                    "name": "required_acks",
                                     "string": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1558,7 +1558,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "tokenurl",
+                                                "name": "token_url",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -1576,7 +1576,7 @@
                                     }
                                 },
                                 {
-                                    "name": "syncproducer",
+                                    "name": "sync_producer",
                                     "bool": {
                                         "computed_optional_required": "optional",
                                         "description": "Start a sync producer"
@@ -1598,28 +1598,28 @@
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "cafile",
+                                                "name": "ca_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate Authority file path"
                                                 }
                                             },
                                             {
-                                                "name": "certfile",
+                                                "name": "cert_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate file path"
                                                 }
                                             },
                                             {
-                                                "name": "keyfile",
+                                                "name": "key_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Key file path"
                                                 }
                                             },
                                             {
-                                                "name": "skipverify",
+                                                "name": "skip_verify",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Skip verifying the server certificate"
@@ -1778,7 +1778,7 @@
                                     }
                                 },
                                 {
-                                    "name": "compressioncodec",
+                                    "name": "compression_codec",
                                     "string": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1874,14 +1874,14 @@
                                     }
                                 },
                                 {
-                                    "name": "flushfrequency",
+                                    "name": "flush_frequency",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "The best-effort frequency of flushes"
                                     }
                                 },
                                 {
-                                    "name": "maxretry",
+                                    "name": "max_retry",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1891,7 +1891,7 @@
                                     }
                                 },
                                 {
-                                    "name": "requiredacks",
+                                    "name": "required_acks",
                                     "string": {
                                         "computed_optional_required": "computed_optional",
                                         "default": {
@@ -1947,7 +1947,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "tokenurl",
+                                                "name": "token_url",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "token url for OAUTHBEARER SASL mechanism"
@@ -1965,7 +1965,7 @@
                                     }
                                 },
                                 {
-                                    "name": "syncproducer",
+                                    "name": "sync_producer",
                                     "bool": {
                                         "computed_optional_required": "optional",
                                         "description": "Start a sync producer"
@@ -1987,28 +1987,28 @@
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "cafile",
+                                                "name": "ca_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate Authority file path"
                                                 }
                                             },
                                             {
-                                                "name": "certfile",
+                                                "name": "cert_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Certificate file path"
                                                 }
                                             },
                                             {
-                                                "name": "keyfile",
+                                                "name": "key_file",
                                                 "string": {
                                                     "computed_optional_required": "optional",
                                                     "description": "TLS Key file path"
                                                 }
                                             },
                                             {
-                                                "name": "skipverify",
+                                                "name": "skip_verify",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Skip verifying the server certificate"

@@ -23,7 +23,7 @@ description: |-
 
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
-- `labelselector` (String) a label selector string to filter the results based on CR labels
+- `label_selector` (String) a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -51,13 +51,13 @@ Read-Only:
 Optional:
 
 - `brokers` (String) Comma separated Kafka brokers list
-- `compressioncodec` (String) Data compression codec
+- `compression_codec` (String) Data compression codec
 - `exports` (Attributes List) Exports is the list of paths to be exported as well as the topic and mode for each. (see [below for nested schema](#nestedatt--items--spec--exports))
-- `flushfrequency` (String) The best-effort frequency of flushes
-- `maxretry` (Number) The total number of times to retry sending a message
-- `requiredacks` (String) Number of replica acknowledgements the broker must see before responding
+- `flush_frequency` (String) The best-effort frequency of flushes
+- `max_retry` (Number) The total number of times to retry sending a message
+- `required_acks` (String) Number of replica acknowledgements the broker must see before responding
 - `sasl` (Attributes) Kafka SASL configuration (see [below for nested schema](#nestedatt--items--spec--sasl))
-- `syncproducer` (Boolean) Start a sync producer
+- `sync_producer` (Boolean) Start a sync producer
 - `timeout` (String) Kafka producer timeout
 - `tls` (Attributes) Kafka TLS configuration (see [below for nested schema](#nestedatt--items--spec--tls))
 
@@ -82,7 +82,7 @@ Optional:
 
 - `mechanism` (String) SASL Mechanism
 - `password` (String) SASL password
-- `tokenurl` (String) token url for OAUTHBEARER SASL mechanism
+- `token_url` (String) token url for OAUTHBEARER SASL mechanism
 - `user` (String) SASL user name
 
 
@@ -91,10 +91,10 @@ Optional:
 
 Optional:
 
-- `cafile` (String) TLS Certificate Authority file path
-- `certfile` (String) TLS Certificate file path
-- `keyfile` (String) TLS Key file path
-- `skipverify` (Boolean) Skip verifying the server certificate
+- `ca_file` (String) TLS Certificate Authority file path
+- `cert_file` (String) TLS Certificate file path
+- `key_file` (String) TLS Key file path
+- `skip_verify` (Boolean) Skip verifying the server certificate
 
 
 

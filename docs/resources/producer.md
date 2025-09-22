@@ -52,12 +52,12 @@ Required:
 
 Optional:
 
-- `compressioncodec` (String) Data compression codec
-- `flushfrequency` (String) The best-effort frequency of flushes
-- `maxretry` (Number) The total number of times to retry sending a message
-- `requiredacks` (String) Number of replica acknowledgements the broker must see before responding
+- `compression_codec` (String) Data compression codec
+- `flush_frequency` (String) The best-effort frequency of flushes
+- `max_retry` (Number) The total number of times to retry sending a message
+- `required_acks` (String) Number of replica acknowledgements the broker must see before responding
 - `sasl` (Attributes) Kafka SASL configuration (see [below for nested schema](#nestedatt--spec--sasl))
-- `syncproducer` (Boolean) Start a sync producer
+- `sync_producer` (Boolean) Start a sync producer
 - `timeout` (String) Kafka producer timeout
 - `tls` (Attributes) Kafka TLS configuration (see [below for nested schema](#nestedatt--spec--tls))
 
@@ -85,7 +85,7 @@ Optional:
 
 - `mechanism` (String) SASL Mechanism
 - `password` (String) SASL password
-- `tokenurl` (String) token url for OAUTHBEARER SASL mechanism
+- `token_url` (String) token url for OAUTHBEARER SASL mechanism
 - `user` (String) SASL user name
 
 
@@ -94,10 +94,10 @@ Optional:
 
 Optional:
 
-- `cafile` (String) TLS Certificate Authority file path
-- `certfile` (String) TLS Certificate file path
-- `keyfile` (String) TLS Key file path
-- `skipverify` (Boolean) Skip verifying the server certificate
+- `ca_file` (String) TLS Certificate Authority file path
+- `cert_file` (String) TLS Certificate file path
+- `key_file` (String) TLS Key file path
+- `skip_verify` (Boolean) Skip verifying the server certificate
 
 
 

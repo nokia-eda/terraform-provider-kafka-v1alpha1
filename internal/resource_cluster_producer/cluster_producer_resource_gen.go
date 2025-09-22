@@ -79,7 +79,7 @@ func ClusterProducerResourceSchema(ctx context.Context) schema.Schema {
 						Description:         "Comma separated Kafka brokers list",
 						MarkdownDescription: "Comma separated Kafka brokers list",
 					},
-					"compressioncodec": schema.StringAttribute{
+					"compression_codec": schema.StringAttribute{
 						Optional:            true,
 						Computed:            true,
 						Description:         "Data compression codec",
@@ -151,19 +151,19 @@ func ClusterProducerResourceSchema(ctx context.Context) schema.Schema {
 						Description:         "Exports is the list of paths to be exported as well as the topic and mode for each.",
 						MarkdownDescription: "Exports is the list of paths to be exported as well as the topic and mode for each.",
 					},
-					"flushfrequency": schema.StringAttribute{
+					"flush_frequency": schema.StringAttribute{
 						Optional:            true,
 						Description:         "The best-effort frequency of flushes",
 						MarkdownDescription: "The best-effort frequency of flushes",
 					},
-					"maxretry": schema.Int64Attribute{
+					"max_retry": schema.Int64Attribute{
 						Optional:            true,
 						Computed:            true,
 						Description:         "The total number of times to retry sending a message",
 						MarkdownDescription: "The total number of times to retry sending a message",
 						Default:             int64default.StaticInt64(3),
 					},
-					"requiredacks": schema.StringAttribute{
+					"required_acks": schema.StringAttribute{
 						Optional:            true,
 						Computed:            true,
 						Description:         "Number of replica acknowledgements the broker must see before responding",
@@ -199,7 +199,7 @@ func ClusterProducerResourceSchema(ctx context.Context) schema.Schema {
 								Description:         "SASL password",
 								MarkdownDescription: "SASL password",
 							},
-							"tokenurl": schema.StringAttribute{
+							"token_url": schema.StringAttribute{
 								Optional:            true,
 								Description:         "token url for OAUTHBEARER SASL mechanism",
 								MarkdownDescription: "token url for OAUTHBEARER SASL mechanism",
@@ -219,7 +219,7 @@ func ClusterProducerResourceSchema(ctx context.Context) schema.Schema {
 						Description:         "Kafka SASL configuration",
 						MarkdownDescription: "Kafka SASL configuration",
 					},
-					"syncproducer": schema.BoolAttribute{
+					"sync_producer": schema.BoolAttribute{
 						Optional:            true,
 						Description:         "Start a sync producer",
 						MarkdownDescription: "Start a sync producer",
@@ -233,22 +233,22 @@ func ClusterProducerResourceSchema(ctx context.Context) schema.Schema {
 					},
 					"tls": schema.SingleNestedAttribute{
 						Attributes: map[string]schema.Attribute{
-							"cafile": schema.StringAttribute{
+							"ca_file": schema.StringAttribute{
 								Optional:            true,
 								Description:         "TLS Certificate Authority file path",
 								MarkdownDescription: "TLS Certificate Authority file path",
 							},
-							"certfile": schema.StringAttribute{
+							"cert_file": schema.StringAttribute{
 								Optional:            true,
 								Description:         "TLS Certificate file path",
 								MarkdownDescription: "TLS Certificate file path",
 							},
-							"keyfile": schema.StringAttribute{
+							"key_file": schema.StringAttribute{
 								Optional:            true,
 								Description:         "TLS Key file path",
 								MarkdownDescription: "TLS Key file path",
 							},
-							"skipverify": schema.BoolAttribute{
+							"skip_verify": schema.BoolAttribute{
 								Optional:            true,
 								Description:         "Skip verifying the server certificate",
 								MarkdownDescription: "Skip verifying the server certificate",
@@ -835,22 +835,22 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`brokers expected to be basetypes.StringValue, was: %T`, brokersAttribute))
 	}
 
-	compressioncodecAttribute, ok := attributes["compressioncodec"]
+	compressionCodecAttribute, ok := attributes["compression_codec"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`compressioncodec is missing from object`)
+			`compression_codec is missing from object`)
 
 		return nil, diags
 	}
 
-	compressioncodecVal, ok := compressioncodecAttribute.(basetypes.StringValue)
+	compressionCodecVal, ok := compressionCodecAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`compressioncodec expected to be basetypes.StringValue, was: %T`, compressioncodecAttribute))
+			fmt.Sprintf(`compression_codec expected to be basetypes.StringValue, was: %T`, compressionCodecAttribute))
 	}
 
 	exportsAttribute, ok := attributes["exports"]
@@ -871,58 +871,58 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`exports expected to be basetypes.ListValue, was: %T`, exportsAttribute))
 	}
 
-	flushfrequencyAttribute, ok := attributes["flushfrequency"]
+	flushFrequencyAttribute, ok := attributes["flush_frequency"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`flushfrequency is missing from object`)
+			`flush_frequency is missing from object`)
 
 		return nil, diags
 	}
 
-	flushfrequencyVal, ok := flushfrequencyAttribute.(basetypes.StringValue)
+	flushFrequencyVal, ok := flushFrequencyAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`flushfrequency expected to be basetypes.StringValue, was: %T`, flushfrequencyAttribute))
+			fmt.Sprintf(`flush_frequency expected to be basetypes.StringValue, was: %T`, flushFrequencyAttribute))
 	}
 
-	maxretryAttribute, ok := attributes["maxretry"]
+	maxRetryAttribute, ok := attributes["max_retry"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`maxretry is missing from object`)
+			`max_retry is missing from object`)
 
 		return nil, diags
 	}
 
-	maxretryVal, ok := maxretryAttribute.(basetypes.Int64Value)
+	maxRetryVal, ok := maxRetryAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`maxretry expected to be basetypes.Int64Value, was: %T`, maxretryAttribute))
+			fmt.Sprintf(`max_retry expected to be basetypes.Int64Value, was: %T`, maxRetryAttribute))
 	}
 
-	requiredacksAttribute, ok := attributes["requiredacks"]
+	requiredAcksAttribute, ok := attributes["required_acks"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`requiredacks is missing from object`)
+			`required_acks is missing from object`)
 
 		return nil, diags
 	}
 
-	requiredacksVal, ok := requiredacksAttribute.(basetypes.StringValue)
+	requiredAcksVal, ok := requiredAcksAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`requiredacks expected to be basetypes.StringValue, was: %T`, requiredacksAttribute))
+			fmt.Sprintf(`required_acks expected to be basetypes.StringValue, was: %T`, requiredAcksAttribute))
 	}
 
 	saslAttribute, ok := attributes["sasl"]
@@ -943,22 +943,22 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`sasl expected to be basetypes.ObjectValue, was: %T`, saslAttribute))
 	}
 
-	syncproducerAttribute, ok := attributes["syncproducer"]
+	syncProducerAttribute, ok := attributes["sync_producer"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`syncproducer is missing from object`)
+			`sync_producer is missing from object`)
 
 		return nil, diags
 	}
 
-	syncproducerVal, ok := syncproducerAttribute.(basetypes.BoolValue)
+	syncProducerVal, ok := syncProducerAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`syncproducer expected to be basetypes.BoolValue, was: %T`, syncproducerAttribute))
+			fmt.Sprintf(`sync_producer expected to be basetypes.BoolValue, was: %T`, syncProducerAttribute))
 	}
 
 	timeoutAttribute, ok := attributes["timeout"]
@@ -1003,13 +1003,13 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 
 	return SpecValue{
 		Brokers:          brokersVal,
-		Compressioncodec: compressioncodecVal,
+		CompressionCodec: compressionCodecVal,
 		Exports:          exportsVal,
-		Flushfrequency:   flushfrequencyVal,
-		Maxretry:         maxretryVal,
-		Requiredacks:     requiredacksVal,
+		FlushFrequency:   flushFrequencyVal,
+		MaxRetry:         maxRetryVal,
+		RequiredAcks:     requiredAcksVal,
 		Sasl:             saslVal,
-		Syncproducer:     syncproducerVal,
+		SyncProducer:     syncProducerVal,
 		Timeout:          timeoutVal,
 		Tls:              tlsVal,
 		state:            attr.ValueStateKnown,
@@ -1097,22 +1097,22 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`brokers expected to be basetypes.StringValue, was: %T`, brokersAttribute))
 	}
 
-	compressioncodecAttribute, ok := attributes["compressioncodec"]
+	compressionCodecAttribute, ok := attributes["compression_codec"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`compressioncodec is missing from object`)
+			`compression_codec is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	compressioncodecVal, ok := compressioncodecAttribute.(basetypes.StringValue)
+	compressionCodecVal, ok := compressionCodecAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`compressioncodec expected to be basetypes.StringValue, was: %T`, compressioncodecAttribute))
+			fmt.Sprintf(`compression_codec expected to be basetypes.StringValue, was: %T`, compressionCodecAttribute))
 	}
 
 	exportsAttribute, ok := attributes["exports"]
@@ -1133,58 +1133,58 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`exports expected to be basetypes.ListValue, was: %T`, exportsAttribute))
 	}
 
-	flushfrequencyAttribute, ok := attributes["flushfrequency"]
+	flushFrequencyAttribute, ok := attributes["flush_frequency"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`flushfrequency is missing from object`)
+			`flush_frequency is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	flushfrequencyVal, ok := flushfrequencyAttribute.(basetypes.StringValue)
+	flushFrequencyVal, ok := flushFrequencyAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`flushfrequency expected to be basetypes.StringValue, was: %T`, flushfrequencyAttribute))
+			fmt.Sprintf(`flush_frequency expected to be basetypes.StringValue, was: %T`, flushFrequencyAttribute))
 	}
 
-	maxretryAttribute, ok := attributes["maxretry"]
+	maxRetryAttribute, ok := attributes["max_retry"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`maxretry is missing from object`)
+			`max_retry is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	maxretryVal, ok := maxretryAttribute.(basetypes.Int64Value)
+	maxRetryVal, ok := maxRetryAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`maxretry expected to be basetypes.Int64Value, was: %T`, maxretryAttribute))
+			fmt.Sprintf(`max_retry expected to be basetypes.Int64Value, was: %T`, maxRetryAttribute))
 	}
 
-	requiredacksAttribute, ok := attributes["requiredacks"]
+	requiredAcksAttribute, ok := attributes["required_acks"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`requiredacks is missing from object`)
+			`required_acks is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	requiredacksVal, ok := requiredacksAttribute.(basetypes.StringValue)
+	requiredAcksVal, ok := requiredAcksAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`requiredacks expected to be basetypes.StringValue, was: %T`, requiredacksAttribute))
+			fmt.Sprintf(`required_acks expected to be basetypes.StringValue, was: %T`, requiredAcksAttribute))
 	}
 
 	saslAttribute, ok := attributes["sasl"]
@@ -1205,22 +1205,22 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`sasl expected to be basetypes.ObjectValue, was: %T`, saslAttribute))
 	}
 
-	syncproducerAttribute, ok := attributes["syncproducer"]
+	syncProducerAttribute, ok := attributes["sync_producer"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`syncproducer is missing from object`)
+			`sync_producer is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	syncproducerVal, ok := syncproducerAttribute.(basetypes.BoolValue)
+	syncProducerVal, ok := syncProducerAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`syncproducer expected to be basetypes.BoolValue, was: %T`, syncproducerAttribute))
+			fmt.Sprintf(`sync_producer expected to be basetypes.BoolValue, was: %T`, syncProducerAttribute))
 	}
 
 	timeoutAttribute, ok := attributes["timeout"]
@@ -1265,13 +1265,13 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 
 	return SpecValue{
 		Brokers:          brokersVal,
-		Compressioncodec: compressioncodecVal,
+		CompressionCodec: compressionCodecVal,
 		Exports:          exportsVal,
-		Flushfrequency:   flushfrequencyVal,
-		Maxretry:         maxretryVal,
-		Requiredacks:     requiredacksVal,
+		FlushFrequency:   flushFrequencyVal,
+		MaxRetry:         maxRetryVal,
+		RequiredAcks:     requiredAcksVal,
 		Sasl:             saslVal,
-		Syncproducer:     syncproducerVal,
+		SyncProducer:     syncProducerVal,
 		Timeout:          timeoutVal,
 		Tls:              tlsVal,
 		state:            attr.ValueStateKnown,
@@ -1347,13 +1347,13 @@ var _ basetypes.ObjectValuable = SpecValue{}
 
 type SpecValue struct {
 	Brokers          basetypes.StringValue `tfsdk:"brokers"`
-	Compressioncodec basetypes.StringValue `tfsdk:"compressioncodec"`
+	CompressionCodec basetypes.StringValue `tfsdk:"compression_codec"`
 	Exports          basetypes.ListValue   `tfsdk:"exports"`
-	Flushfrequency   basetypes.StringValue `tfsdk:"flushfrequency"`
-	Maxretry         basetypes.Int64Value  `tfsdk:"maxretry"`
-	Requiredacks     basetypes.StringValue `tfsdk:"requiredacks"`
+	FlushFrequency   basetypes.StringValue `tfsdk:"flush_frequency"`
+	MaxRetry         basetypes.Int64Value  `tfsdk:"max_retry"`
+	RequiredAcks     basetypes.StringValue `tfsdk:"required_acks"`
 	Sasl             basetypes.ObjectValue `tfsdk:"sasl"`
-	Syncproducer     basetypes.BoolValue   `tfsdk:"syncproducer"`
+	SyncProducer     basetypes.BoolValue   `tfsdk:"sync_producer"`
 	Timeout          basetypes.StringValue `tfsdk:"timeout"`
 	Tls              basetypes.ObjectValue `tfsdk:"tls"`
 	state            attr.ValueState
@@ -1366,17 +1366,17 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	var err error
 
 	attrTypes["brokers"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["compressioncodec"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["compression_codec"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["exports"] = basetypes.ListType{
 		ElemType: ExportsValue{}.Type(ctx),
 	}.TerraformType(ctx)
-	attrTypes["flushfrequency"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["maxretry"] = basetypes.Int64Type{}.TerraformType(ctx)
-	attrTypes["requiredacks"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["flush_frequency"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["max_retry"] = basetypes.Int64Type{}.TerraformType(ctx)
+	attrTypes["required_acks"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["sasl"] = basetypes.ObjectType{
 		AttrTypes: SaslValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["syncproducer"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["sync_producer"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["timeout"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["tls"] = basetypes.ObjectType{
 		AttrTypes: TlsValue{}.AttributeTypes(ctx),
@@ -1396,13 +1396,13 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["brokers"] = val
 
-		val, err = v.Compressioncodec.ToTerraformValue(ctx)
+		val, err = v.CompressionCodec.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["compressioncodec"] = val
+		vals["compression_codec"] = val
 
 		val, err = v.Exports.ToTerraformValue(ctx)
 
@@ -1412,29 +1412,29 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["exports"] = val
 
-		val, err = v.Flushfrequency.ToTerraformValue(ctx)
+		val, err = v.FlushFrequency.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["flushfrequency"] = val
+		vals["flush_frequency"] = val
 
-		val, err = v.Maxretry.ToTerraformValue(ctx)
-
-		if err != nil {
-			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
-		}
-
-		vals["maxretry"] = val
-
-		val, err = v.Requiredacks.ToTerraformValue(ctx)
+		val, err = v.MaxRetry.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["requiredacks"] = val
+		vals["max_retry"] = val
+
+		val, err = v.RequiredAcks.ToTerraformValue(ctx)
+
+		if err != nil {
+			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
+		}
+
+		vals["required_acks"] = val
 
 		val, err = v.Sasl.ToTerraformValue(ctx)
 
@@ -1444,13 +1444,13 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["sasl"] = val
 
-		val, err = v.Syncproducer.ToTerraformValue(ctx)
+		val, err = v.SyncProducer.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["syncproducer"] = val
+		vals["sync_producer"] = val
 
 		val, err = v.Timeout.ToTerraformValue(ctx)
 
@@ -1569,19 +1569,19 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"brokers":          basetypes.StringType{},
-		"compressioncodec": basetypes.StringType{},
+		"brokers":           basetypes.StringType{},
+		"compression_codec": basetypes.StringType{},
 		"exports": basetypes.ListType{
 			ElemType: ExportsValue{}.Type(ctx),
 		},
-		"flushfrequency": basetypes.StringType{},
-		"maxretry":       basetypes.Int64Type{},
-		"requiredacks":   basetypes.StringType{},
+		"flush_frequency": basetypes.StringType{},
+		"max_retry":       basetypes.Int64Type{},
+		"required_acks":   basetypes.StringType{},
 		"sasl": basetypes.ObjectType{
 			AttrTypes: SaslValue{}.AttributeTypes(ctx),
 		},
-		"syncproducer": basetypes.BoolType{},
-		"timeout":      basetypes.StringType{},
+		"sync_producer": basetypes.BoolType{},
+		"timeout":       basetypes.StringType{},
 		"tls": basetypes.ObjectType{
 			AttrTypes: TlsValue{}.AttributeTypes(ctx),
 		},
@@ -1598,16 +1598,16 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"brokers":          v.Brokers,
-			"compressioncodec": v.Compressioncodec,
-			"exports":          exports,
-			"flushfrequency":   v.Flushfrequency,
-			"maxretry":         v.Maxretry,
-			"requiredacks":     v.Requiredacks,
-			"sasl":             sasl,
-			"syncproducer":     v.Syncproducer,
-			"timeout":          v.Timeout,
-			"tls":              tls,
+			"brokers":           v.Brokers,
+			"compression_codec": v.CompressionCodec,
+			"exports":           exports,
+			"flush_frequency":   v.FlushFrequency,
+			"max_retry":         v.MaxRetry,
+			"required_acks":     v.RequiredAcks,
+			"sasl":              sasl,
+			"sync_producer":     v.SyncProducer,
+			"timeout":           v.Timeout,
+			"tls":               tls,
 		})
 
 	return objVal, diags
@@ -1632,7 +1632,7 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Compressioncodec.Equal(other.Compressioncodec) {
+	if !v.CompressionCodec.Equal(other.CompressionCodec) {
 		return false
 	}
 
@@ -1640,15 +1640,15 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Flushfrequency.Equal(other.Flushfrequency) {
+	if !v.FlushFrequency.Equal(other.FlushFrequency) {
 		return false
 	}
 
-	if !v.Maxretry.Equal(other.Maxretry) {
+	if !v.MaxRetry.Equal(other.MaxRetry) {
 		return false
 	}
 
-	if !v.Requiredacks.Equal(other.Requiredacks) {
+	if !v.RequiredAcks.Equal(other.RequiredAcks) {
 		return false
 	}
 
@@ -1656,7 +1656,7 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Syncproducer.Equal(other.Syncproducer) {
+	if !v.SyncProducer.Equal(other.SyncProducer) {
 		return false
 	}
 
@@ -1681,19 +1681,19 @@ func (v SpecValue) Type(ctx context.Context) attr.Type {
 
 func (v SpecValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"brokers":          basetypes.StringType{},
-		"compressioncodec": basetypes.StringType{},
+		"brokers":           basetypes.StringType{},
+		"compression_codec": basetypes.StringType{},
 		"exports": basetypes.ListType{
 			ElemType: ExportsValue{}.Type(ctx),
 		},
-		"flushfrequency": basetypes.StringType{},
-		"maxretry":       basetypes.Int64Type{},
-		"requiredacks":   basetypes.StringType{},
+		"flush_frequency": basetypes.StringType{},
+		"max_retry":       basetypes.Int64Type{},
+		"required_acks":   basetypes.StringType{},
 		"sasl": basetypes.ObjectType{
 			AttrTypes: SaslValue{}.AttributeTypes(ctx),
 		},
-		"syncproducer": basetypes.BoolType{},
-		"timeout":      basetypes.StringType{},
+		"sync_producer": basetypes.BoolType{},
+		"timeout":       basetypes.StringType{},
 		"tls": basetypes.ObjectType{
 			AttrTypes: TlsValue{}.AttributeTypes(ctx),
 		},
@@ -2391,22 +2391,22 @@ func (t SaslType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`password expected to be basetypes.StringValue, was: %T`, passwordAttribute))
 	}
 
-	tokenurlAttribute, ok := attributes["tokenurl"]
+	tokenUrlAttribute, ok := attributes["token_url"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`tokenurl is missing from object`)
+			`token_url is missing from object`)
 
 		return nil, diags
 	}
 
-	tokenurlVal, ok := tokenurlAttribute.(basetypes.StringValue)
+	tokenUrlVal, ok := tokenUrlAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`tokenurl expected to be basetypes.StringValue, was: %T`, tokenurlAttribute))
+			fmt.Sprintf(`token_url expected to be basetypes.StringValue, was: %T`, tokenUrlAttribute))
 	}
 
 	userAttribute, ok := attributes["user"]
@@ -2434,7 +2434,7 @@ func (t SaslType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 	return SaslValue{
 		Mechanism: mechanismVal,
 		Password:  passwordVal,
-		Tokenurl:  tokenurlVal,
+		TokenUrl:  tokenUrlVal,
 		User:      userVal,
 		state:     attr.ValueStateKnown,
 	}, diags
@@ -2539,22 +2539,22 @@ func NewSaslValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`password expected to be basetypes.StringValue, was: %T`, passwordAttribute))
 	}
 
-	tokenurlAttribute, ok := attributes["tokenurl"]
+	tokenUrlAttribute, ok := attributes["token_url"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`tokenurl is missing from object`)
+			`token_url is missing from object`)
 
 		return NewSaslValueUnknown(), diags
 	}
 
-	tokenurlVal, ok := tokenurlAttribute.(basetypes.StringValue)
+	tokenUrlVal, ok := tokenUrlAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`tokenurl expected to be basetypes.StringValue, was: %T`, tokenurlAttribute))
+			fmt.Sprintf(`token_url expected to be basetypes.StringValue, was: %T`, tokenUrlAttribute))
 	}
 
 	userAttribute, ok := attributes["user"]
@@ -2582,7 +2582,7 @@ func NewSaslValue(attributeTypes map[string]attr.Type, attributes map[string]att
 	return SaslValue{
 		Mechanism: mechanismVal,
 		Password:  passwordVal,
-		Tokenurl:  tokenurlVal,
+		TokenUrl:  tokenUrlVal,
 		User:      userVal,
 		state:     attr.ValueStateKnown,
 	}, diags
@@ -2658,7 +2658,7 @@ var _ basetypes.ObjectValuable = SaslValue{}
 type SaslValue struct {
 	Mechanism basetypes.StringValue `tfsdk:"mechanism"`
 	Password  basetypes.StringValue `tfsdk:"password"`
-	Tokenurl  basetypes.StringValue `tfsdk:"tokenurl"`
+	TokenUrl  basetypes.StringValue `tfsdk:"token_url"`
 	User      basetypes.StringValue `tfsdk:"user"`
 	state     attr.ValueState
 }
@@ -2671,7 +2671,7 @@ func (v SaslValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 	attrTypes["mechanism"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["password"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["tokenurl"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["token_url"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["user"] = basetypes.StringType{}.TerraformType(ctx)
 
 	objectType := tftypes.Object{AttributeTypes: attrTypes}
@@ -2696,13 +2696,13 @@ func (v SaslValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["password"] = val
 
-		val, err = v.Tokenurl.ToTerraformValue(ctx)
+		val, err = v.TokenUrl.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["tokenurl"] = val
+		vals["token_url"] = val
 
 		val, err = v.User.ToTerraformValue(ctx)
 
@@ -2744,7 +2744,7 @@ func (v SaslValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 	attributeTypes := map[string]attr.Type{
 		"mechanism": basetypes.StringType{},
 		"password":  basetypes.StringType{},
-		"tokenurl":  basetypes.StringType{},
+		"token_url": basetypes.StringType{},
 		"user":      basetypes.StringType{},
 	}
 
@@ -2761,7 +2761,7 @@ func (v SaslValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		map[string]attr.Value{
 			"mechanism": v.Mechanism,
 			"password":  v.Password,
-			"tokenurl":  v.Tokenurl,
+			"token_url": v.TokenUrl,
 			"user":      v.User,
 		})
 
@@ -2791,7 +2791,7 @@ func (v SaslValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Tokenurl.Equal(other.Tokenurl) {
+	if !v.TokenUrl.Equal(other.TokenUrl) {
 		return false
 	}
 
@@ -2814,7 +2814,7 @@ func (v SaslValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
 		"mechanism": basetypes.StringType{},
 		"password":  basetypes.StringType{},
-		"tokenurl":  basetypes.StringType{},
+		"token_url": basetypes.StringType{},
 		"user":      basetypes.StringType{},
 	}
 }
@@ -2844,76 +2844,76 @@ func (t TlsType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) 
 
 	attributes := in.Attributes()
 
-	cafileAttribute, ok := attributes["cafile"]
+	caFileAttribute, ok := attributes["ca_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`cafile is missing from object`)
+			`ca_file is missing from object`)
 
 		return nil, diags
 	}
 
-	cafileVal, ok := cafileAttribute.(basetypes.StringValue)
+	caFileVal, ok := caFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`cafile expected to be basetypes.StringValue, was: %T`, cafileAttribute))
+			fmt.Sprintf(`ca_file expected to be basetypes.StringValue, was: %T`, caFileAttribute))
 	}
 
-	certfileAttribute, ok := attributes["certfile"]
+	certFileAttribute, ok := attributes["cert_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`certfile is missing from object`)
+			`cert_file is missing from object`)
 
 		return nil, diags
 	}
 
-	certfileVal, ok := certfileAttribute.(basetypes.StringValue)
+	certFileVal, ok := certFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`certfile expected to be basetypes.StringValue, was: %T`, certfileAttribute))
+			fmt.Sprintf(`cert_file expected to be basetypes.StringValue, was: %T`, certFileAttribute))
 	}
 
-	keyfileAttribute, ok := attributes["keyfile"]
+	keyFileAttribute, ok := attributes["key_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`keyfile is missing from object`)
+			`key_file is missing from object`)
 
 		return nil, diags
 	}
 
-	keyfileVal, ok := keyfileAttribute.(basetypes.StringValue)
+	keyFileVal, ok := keyFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`keyfile expected to be basetypes.StringValue, was: %T`, keyfileAttribute))
+			fmt.Sprintf(`key_file expected to be basetypes.StringValue, was: %T`, keyFileAttribute))
 	}
 
-	skipverifyAttribute, ok := attributes["skipverify"]
+	skipVerifyAttribute, ok := attributes["skip_verify"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`skipverify is missing from object`)
+			`skip_verify is missing from object`)
 
 		return nil, diags
 	}
 
-	skipverifyVal, ok := skipverifyAttribute.(basetypes.BoolValue)
+	skipVerifyVal, ok := skipVerifyAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`skipverify expected to be basetypes.BoolValue, was: %T`, skipverifyAttribute))
+			fmt.Sprintf(`skip_verify expected to be basetypes.BoolValue, was: %T`, skipVerifyAttribute))
 	}
 
 	if diags.HasError() {
@@ -2921,10 +2921,10 @@ func (t TlsType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) 
 	}
 
 	return TlsValue{
-		Cafile:     cafileVal,
-		Certfile:   certfileVal,
-		Keyfile:    keyfileVal,
-		Skipverify: skipverifyVal,
+		CaFile:     caFileVal,
+		CertFile:   certFileVal,
+		KeyFile:    keyFileVal,
+		SkipVerify: skipVerifyVal,
 		state:      attr.ValueStateKnown,
 	}, diags
 }
@@ -2992,76 +2992,76 @@ func NewTlsValue(attributeTypes map[string]attr.Type, attributes map[string]attr
 		return NewTlsValueUnknown(), diags
 	}
 
-	cafileAttribute, ok := attributes["cafile"]
+	caFileAttribute, ok := attributes["ca_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`cafile is missing from object`)
+			`ca_file is missing from object`)
 
 		return NewTlsValueUnknown(), diags
 	}
 
-	cafileVal, ok := cafileAttribute.(basetypes.StringValue)
+	caFileVal, ok := caFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`cafile expected to be basetypes.StringValue, was: %T`, cafileAttribute))
+			fmt.Sprintf(`ca_file expected to be basetypes.StringValue, was: %T`, caFileAttribute))
 	}
 
-	certfileAttribute, ok := attributes["certfile"]
+	certFileAttribute, ok := attributes["cert_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`certfile is missing from object`)
+			`cert_file is missing from object`)
 
 		return NewTlsValueUnknown(), diags
 	}
 
-	certfileVal, ok := certfileAttribute.(basetypes.StringValue)
+	certFileVal, ok := certFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`certfile expected to be basetypes.StringValue, was: %T`, certfileAttribute))
+			fmt.Sprintf(`cert_file expected to be basetypes.StringValue, was: %T`, certFileAttribute))
 	}
 
-	keyfileAttribute, ok := attributes["keyfile"]
+	keyFileAttribute, ok := attributes["key_file"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`keyfile is missing from object`)
+			`key_file is missing from object`)
 
 		return NewTlsValueUnknown(), diags
 	}
 
-	keyfileVal, ok := keyfileAttribute.(basetypes.StringValue)
+	keyFileVal, ok := keyFileAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`keyfile expected to be basetypes.StringValue, was: %T`, keyfileAttribute))
+			fmt.Sprintf(`key_file expected to be basetypes.StringValue, was: %T`, keyFileAttribute))
 	}
 
-	skipverifyAttribute, ok := attributes["skipverify"]
+	skipVerifyAttribute, ok := attributes["skip_verify"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`skipverify is missing from object`)
+			`skip_verify is missing from object`)
 
 		return NewTlsValueUnknown(), diags
 	}
 
-	skipverifyVal, ok := skipverifyAttribute.(basetypes.BoolValue)
+	skipVerifyVal, ok := skipVerifyAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`skipverify expected to be basetypes.BoolValue, was: %T`, skipverifyAttribute))
+			fmt.Sprintf(`skip_verify expected to be basetypes.BoolValue, was: %T`, skipVerifyAttribute))
 	}
 
 	if diags.HasError() {
@@ -3069,10 +3069,10 @@ func NewTlsValue(attributeTypes map[string]attr.Type, attributes map[string]attr
 	}
 
 	return TlsValue{
-		Cafile:     cafileVal,
-		Certfile:   certfileVal,
-		Keyfile:    keyfileVal,
-		Skipverify: skipverifyVal,
+		CaFile:     caFileVal,
+		CertFile:   certFileVal,
+		KeyFile:    keyFileVal,
+		SkipVerify: skipVerifyVal,
 		state:      attr.ValueStateKnown,
 	}, diags
 }
@@ -3145,10 +3145,10 @@ func (t TlsType) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = TlsValue{}
 
 type TlsValue struct {
-	Cafile     basetypes.StringValue `tfsdk:"cafile"`
-	Certfile   basetypes.StringValue `tfsdk:"certfile"`
-	Keyfile    basetypes.StringValue `tfsdk:"keyfile"`
-	Skipverify basetypes.BoolValue   `tfsdk:"skipverify"`
+	CaFile     basetypes.StringValue `tfsdk:"ca_file"`
+	CertFile   basetypes.StringValue `tfsdk:"cert_file"`
+	KeyFile    basetypes.StringValue `tfsdk:"key_file"`
+	SkipVerify basetypes.BoolValue   `tfsdk:"skip_verify"`
 	state      attr.ValueState
 }
 
@@ -3158,10 +3158,10 @@ func (v TlsValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
 	var val tftypes.Value
 	var err error
 
-	attrTypes["cafile"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["certfile"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["keyfile"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["skipverify"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["ca_file"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["cert_file"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["key_file"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["skip_verify"] = basetypes.BoolType{}.TerraformType(ctx)
 
 	objectType := tftypes.Object{AttributeTypes: attrTypes}
 
@@ -3169,37 +3169,37 @@ func (v TlsValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
 	case attr.ValueStateKnown:
 		vals := make(map[string]tftypes.Value, 4)
 
-		val, err = v.Cafile.ToTerraformValue(ctx)
+		val, err = v.CaFile.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["cafile"] = val
+		vals["ca_file"] = val
 
-		val, err = v.Certfile.ToTerraformValue(ctx)
-
-		if err != nil {
-			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
-		}
-
-		vals["certfile"] = val
-
-		val, err = v.Keyfile.ToTerraformValue(ctx)
+		val, err = v.CertFile.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["keyfile"] = val
+		vals["cert_file"] = val
 
-		val, err = v.Skipverify.ToTerraformValue(ctx)
+		val, err = v.KeyFile.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["skipverify"] = val
+		vals["key_file"] = val
+
+		val, err = v.SkipVerify.ToTerraformValue(ctx)
+
+		if err != nil {
+			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
+		}
+
+		vals["skip_verify"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -3231,10 +3231,10 @@ func (v TlsValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, dia
 	var diags diag.Diagnostics
 
 	attributeTypes := map[string]attr.Type{
-		"cafile":     basetypes.StringType{},
-		"certfile":   basetypes.StringType{},
-		"keyfile":    basetypes.StringType{},
-		"skipverify": basetypes.BoolType{},
+		"ca_file":     basetypes.StringType{},
+		"cert_file":   basetypes.StringType{},
+		"key_file":    basetypes.StringType{},
+		"skip_verify": basetypes.BoolType{},
 	}
 
 	if v.IsNull() {
@@ -3248,10 +3248,10 @@ func (v TlsValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, dia
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"cafile":     v.Cafile,
-			"certfile":   v.Certfile,
-			"keyfile":    v.Keyfile,
-			"skipverify": v.Skipverify,
+			"ca_file":     v.CaFile,
+			"cert_file":   v.CertFile,
+			"key_file":    v.KeyFile,
+			"skip_verify": v.SkipVerify,
 		})
 
 	return objVal, diags
@@ -3272,19 +3272,19 @@ func (v TlsValue) Equal(o attr.Value) bool {
 		return true
 	}
 
-	if !v.Cafile.Equal(other.Cafile) {
+	if !v.CaFile.Equal(other.CaFile) {
 		return false
 	}
 
-	if !v.Certfile.Equal(other.Certfile) {
+	if !v.CertFile.Equal(other.CertFile) {
 		return false
 	}
 
-	if !v.Keyfile.Equal(other.Keyfile) {
+	if !v.KeyFile.Equal(other.KeyFile) {
 		return false
 	}
 
-	if !v.Skipverify.Equal(other.Skipverify) {
+	if !v.SkipVerify.Equal(other.SkipVerify) {
 		return false
 	}
 
@@ -3301,10 +3301,10 @@ func (v TlsValue) Type(ctx context.Context) attr.Type {
 
 func (v TlsValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"cafile":     basetypes.StringType{},
-		"certfile":   basetypes.StringType{},
-		"keyfile":    basetypes.StringType{},
-		"skipverify": basetypes.BoolType{},
+		"ca_file":     basetypes.StringType{},
+		"cert_file":   basetypes.StringType{},
+		"key_file":    basetypes.StringType{},
+		"skip_verify": basetypes.BoolType{},
 	}
 }
 
