@@ -11,7 +11,9 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},PATCH,Patch,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name},PUT,com.nokia.eda.kafka.v1alpha1.ClusterProducer,cluster_producer,true,false,true
 /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_targets,GET,IntentTargets,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_topology,POST,K8STopologyRequest,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,DELETE,com.nokia.eda.kafka.v1alpha1.ProducerList,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,GET,com.nokia.eda.kafka.v1alpha1.ProducerList,producer_list,true,true,false
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers,POST,com.nokia.eda.kafka.v1alpha1.Producer,producer,true,false,true
@@ -21,5 +23,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},PATCH,Patch,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name},PUT,com.nokia.eda.kafka.v1alpha1.Producer,producer,true,false,true
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_revs,GET,ResourceHistory,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_targets,GET,IntentTargets,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_topology,GET,ResourceTopology,,false,false,false
+/apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_topology,POST,K8STopologyRequest,,false,false,false
 /apps/kafka.eda.nokia.com/v1alpha1/producers,GET,com.nokia.eda.kafka.v1alpha1.ProducerList,,false,false,false
