@@ -19,14 +19,6 @@ k8_s_topology_request:
       path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}/_topology
       method: POST
 
-patch:
-  - update:
-      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
-      method: PATCH
-  - update:
-      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
-      method: PATCH
-
 resource_history:
   - read:
       path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}/_revs
@@ -71,6 +63,9 @@ com.nokia.eda.kafka.v1alpha1.cluster_producer:
   - update:
       path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
       method: PUT
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: PATCH
 
 com.nokia.eda.kafka.v1alpha1.cluster_producer_list:
   - read:
@@ -95,6 +90,9 @@ com.nokia.eda.kafka.v1alpha1.producer:
   - update:
       path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
       method: PUT
+  - update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: PATCH
 
 com.nokia.eda.kafka.v1alpha1.producer_list:
   - read:
@@ -114,8 +112,8 @@ com.nokia.eda.kafka.v1alpha1.producer_deleted_resources:
 
 totalPaths: 16
 totalSchemas: 61
-usedSchemas: 15
-unusedSchemas: 46
+usedSchemas: 14
+unusedSchemas: 47
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
@@ -124,6 +122,7 @@ unusedSchemaList:
   - IntentTarget
   - K8SPatchOp
   - OverlayState
+  - Patch
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
