@@ -1,0 +1,62 @@
+provider:
+  name: kafka
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/kafka.eda.nokia.com
+      method: GET
+
+  cluster_producer:
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: GET
+
+  cluster_producer_list:
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers
+      method: GET
+
+  producer:
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: GET
+
+  producer_list:
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  cluster_producer:
+    create:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers
+      method: POST
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: GET
+    update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: PUT
+    delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/clusterproducers/{name}
+      method: DELETE
+
+  producer:
+    create:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers
+      method: POST
+    read:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: GET
+    update:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: PUT
+    delete:
+      path: /apps/kafka.eda.nokia.com/v1alpha1/namespaces/{namespace}/producers/{name}
+      method: DELETE
